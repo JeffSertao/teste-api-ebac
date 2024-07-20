@@ -24,5 +24,10 @@ Cypress.Commands.add('token', (email, senha) => {
             "quantidade": quantidade
           }, 
           failOnStatusCode: false
+        })
     })
- })
+
+   
+
+   
+ 
