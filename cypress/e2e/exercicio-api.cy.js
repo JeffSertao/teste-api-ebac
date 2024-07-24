@@ -1,4 +1,7 @@
 /// <reference types="cypress" />
+import { faker } from '@faker-js/faker';
+
+
 import contrato from '../contracts/usuarios.contract'
 
 describe('Testes da Funcionalidade Usuários', () => {
@@ -29,8 +32,8 @@ describe('Testes da Funcionalidade Usuários', () => {
       method: 'POST',
       url: 'usuarios',
       body: {
-        "nome": "fulano tres",
-        "email": "fulano.tres@qa.com.br",
+        "nome": "fulano tres4",
+        "email": "fulano.tres4@qa.com.br",
         "password": "teste",
         "administrador": "true"
       },
@@ -54,6 +57,8 @@ describe('Testes da Funcionalidade Usuários', () => {
       failOnStatusCode: false
     }).then(response => {
       expect(response.status).to.equal(400)
+      expect(response.body.email).to.equal('email deve ser um email válido')
+      
     })
   });
 
